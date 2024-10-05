@@ -2,20 +2,16 @@
 // import ContactCard from "./ContactCard";
 
 // const ContactList = (props) => {
-//     console.log(props);
+//   console.log(props);
 
-//     const renderContactList = props.contacts.map((contact) => {
-//         return (
-//            <ContactCard contact={contact}></ContactCard>
-//         );
-//     })
+
+//   const renderContactList = props.contacts.map((contact) => {
 //     return (
-// <div className="ui celled list">
-//     {renderContactList }
-// </div>
+//       <ContactCard contact={contact}/>
 //     );
+//   });
+//   return <div className="ui celled list">{renderContactList}</div>;
 // };
-
 
 // export default ContactList;
 
@@ -24,20 +20,17 @@ import React from "react";
 import ContactCard from "./ContactCard";
 
 const ContactList = (props) => {
-    // Ensure props.contacts has a default empty array if it's undefined
-    const contacts = props.contacts || [];
+  // Check if props.contacts exists and is an array
+  if (!props.contacts || props.contacts.length === 0) {
+    return <div>No contacts available</div>; // Fallback if no contacts are passed
+  }
 
-    const renderContactList = contacts.map((contact) => {
-        return (
-           <ContactCard key={contact.id} contact={contact} />
-        );
-    });
+  // If contacts are available, render them
+  const renderContactList = props.contacts.map((contact, index) => {
+    return <ContactCard key={index} contact={contact} />;
+  });
 
-    return (
-        <div className="ui celled list">
-            {renderContactList.length > 0 ? renderContactList : <p>Add new contacts here</p>}
-        </div>
-    );
+  return <div className="ui celled list">{renderContactList}</div>;
 };
 
 export default ContactList;

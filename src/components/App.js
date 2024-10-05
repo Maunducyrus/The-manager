@@ -1,29 +1,17 @@
-import react from "react";
+import react, {useState} from "react";
 import './App.css';
 import Contactlist from './ContactList'; 
-import Header from './TempHeader';
 import AddContact from "./AddContact";
+import TempHeader from "./TempHeader";
 
 // main function starts here
 function App() {
-
-  const Contacts = [
-    {
-      id : "1", 
-      "name" : "Dipesh",
-      "email" : "cyrus2024@gmail.com",
-    },
-    {
-      id : "2", 
-      "name" : "Mikesh",
-      "email" : "nicks2024@gmail.com",
-    },
-  ];
-
+const [Contacts, setContacts] = useState([]);
   return (
     <div className="ui container">
-<header/>
+<TempHeader/>
 <AddContact/>
+{/* <ContactCard/> */}
 <Contactlist Contacts={Contacts}/>
     </div>
   );
