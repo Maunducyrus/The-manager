@@ -9,13 +9,12 @@ email: "",
 
 add = (e) => {
     e.preventDefault();
-     if (this.state.name === "" && this.state.email === "" ) {
+     if (this.state.name === "" || this.state.email === "" ) {
         alert("all the fields are mandatory");
         return;
      }
-
-     console.log(this.state);
-}
+     this.props.addContactHandler(this.state);
+     this.setState({ name: "", email: ""});}
 
  render() {
 return (
@@ -24,16 +23,23 @@ return (
 <form className="ui form" onSubmit={this.add}>
 <div className="field">
 <label>Name</label>
-<input type="text" name="name" placeholder="Name" 
+<input
+ type="text" 
+ name="name" 
+ placeholder="Name" 
 value={this.state.name}
-onChange={(e) => this.setState({name: e.target.v})} />
+onChange={(e) => this.setState({name: e.target.value})} 
+/>
 </div>
 
 <div className="field">
 <label>Email</label>
-<input type="text" name="Email" placeholder="Name"
+<input 
+type="text" 
+name="Email" 
+placeholder="Email"
 value={this.state.email}
-onChange={(e) => this.setState({email: e.target.v})}
+onChange={(e) => this.setState({email: e.target.value})}
 />
 </div>
 
