@@ -7,10 +7,14 @@ import TempHeader from "./TempHeader";
 // main function starts here
 function App() {
 const [Contacts, setContacts] = useState([]);
+
+const addContactHandler = (contact) => {
+  console.log(contact);
+}
   return (
     <div className="ui container">
 <TempHeader/>
-<AddContact/>
+<AddContact addContactHandler={addContactHandler}/>
 {/* <ContactCard/> */}
 <Contactlist Contacts={Contacts}/>
     </div>
