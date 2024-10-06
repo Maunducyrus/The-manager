@@ -7,6 +7,7 @@ name: "",
 email: "",
     };
 
+    // preventing submission by default
 add = (e) => {
     e.preventDefault();
      if (this.state.name === "" || this.state.email === "" ) {
