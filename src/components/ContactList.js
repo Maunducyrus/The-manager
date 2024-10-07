@@ -25,9 +25,12 @@ const ContactList = (props) => {
     return <div>No contacts available</div>; // Fallback if no contacts are passed
   }
 
+  const deleteContactHandler = (id) => {
+    props.getContactId(id);
+  };
   // If contacts are available, render them
   const renderContactList = props.contacts.map((contact, index) => {
-    return <ContactCard key={index} contact={contact} />;
+    return <ContactCard key={index} contact={contact} clickHandler={deleteContactHandler} Key={contact.id}  />;
   });
 
   return <div className="ui celled list">{renderContactList}</div>;
