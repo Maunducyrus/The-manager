@@ -17,6 +17,7 @@
 
 
 import React from "react";
+import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
 
 const ContactList = (props) => {
@@ -26,14 +27,29 @@ const ContactList = (props) => {
   }
 
   const deleteContactHandler = (id) => {
-    props.getContactId(id);
+    props.getContactId(id); 
   };
   // If contacts are available, render them
-  const renderContactList = props.contacts.map((contact, index) => {
-    return <ContactCard key={index} contact={contact} clickHandler={deleteContactHandler} Key={contact.id}  />;
-  });
 
-  return <div className="ui celled list">{renderContactList}</div>;
+  const renderContactList = props.Contacts.map((contact, index) => {
+    return ( <ContactCard key={index} 
+    contact={contact} 
+    clickHandler={deleteContactHandler} 
+    Key={contact.id}  />
+    );
+  }
+);
+
+  return (
+    <div class="main">
+      <h2>Contact List
+        <Link to="/add"> 
+               <button className="ui button blue right">Add Contact</button>
+        </Link>
+      </h2>
+  <div className="ui celled list">{renderContactList}</div>
+  </div>
+);
 };
 
 export default ContactList;
