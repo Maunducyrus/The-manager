@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { uuid } from "uuidv44";
 import './App.css';
 import Contactlist from './ContactList'; 
-import AddContact from "./AddContact";
+import AddContact from "./AddContact";  
 import TempHeader from "./TempHeader";
 
 // main function starts here
@@ -38,8 +38,10 @@ useEffect(() => {
       <Router>
       <TempHeader/>
       <Switch>
-        <Route path="/" exact component={() => 
-        <Contactlist Contacts={Contacts} getContactId={removeContactHandler}/>} />
+        <Route path="/"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        exact 
+        render={(props)  => (<AddContact{...props}/>)}
+         />
       <Route path="/add" component={() => 
       <AddContact addContactHandler={addContactHandler}/>} />
       </Switch>

@@ -32,7 +32,7 @@ value={this.state.name}
 onChange={(e) => this.setState({name: e.target.value})} 
 />
 </div>
-
+{/* email areas start */}
 <div className="field">
 <label>Email</label>
 <input 
