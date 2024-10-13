@@ -7,5 +7,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "http://localhost:3006" // Change this URL to match your backend
+  baseURL: "http://localhost:3006", // Replace with your backend URL
 });
+
+export default api;
